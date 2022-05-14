@@ -2,12 +2,12 @@ import React from "react";
 
 export default function Form() {
   return (
-    <form className="form-container">
-      <div className="form-container_inputs">
-        <input type='text' placeholder="Enter key word" />
-        <input type='text' placeholder="Enter key phrase" />
-      </div>
-      <input className="form-container_btn" type='submit' />
-    </form>
+    <main>
+      <form className="form">
+        <input className="form--input" type='text' placeholder="Enter key word" />
+        <input className="form--input" type='text' placeholder="Enter key phrase" />
+        <input className="form--button" type='submit' value='Get a new meme image  🖼' />
+      </form>
+    </main>
   )
 }
