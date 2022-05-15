@@ -60,3 +60,11 @@ main {
 .form--button:active {
   transform: scale(0.98);
 }
+
+.meme-img {
+  max-width: 100%;
+  margin: 36px auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
