@@ -18,17 +18,50 @@ export default function Form() {
     const url = memesArray[randomIndex].url;
     //console.log('index:', allMemeImages);
 
-    setMeme(prev => ({...prev, randomImage: url}));
+
+    setMeme(prev => ({ ...prev, randomImage: url }));
+
+    console.log(meme);
+  }
+
+  function handleChange(event) {
+    const {name, value} = event.target;
+
+    setMeme(prev => ({
+      ...prev,
+      [name] : value
+    }))
   }
 
   return (
     <main>
       <form className="form">
-        <input className="form--input" type='text' placeholder="Enter key word" />
-        <input className="form--input" type='text' placeholder="Enter key phrase" />
-        <input onClick={getImage} className="form--button" type='submit' value='Get a new meme image  🖼' />
+        <input
+          className="form--input"
+          type='text'
+          placeholder="Enter key word"
+          name='topText'
+          value={meme.topText}
+          onChange={handleChange} />
+        <input
+          className="form--input"
+          type='text'
+          placeholder="Enter key phrase"
+          name='bottomText'
+          value={meme.bottomText}
+          onChange={handleChange} />
+        <input
+          onClick={getImage}
+          className="form--button" type='submit'
+          value='Get a new meme image  🖼' />
       </form>
-      <img className="meme-img" src={meme.randomImage} alt="Meme"/>
+
+      <div className="meme">
+        <img src={meme.randomImage} className="meme--image" alt="Meme" />
+        <h2 className="meme--text top">{meme.topText}</h2>
+        <h2 className="meme--text bottom">{meme.bottomText}</h2>
+
+      </div>
     </main>
   )
 }
